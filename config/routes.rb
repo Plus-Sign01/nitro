@@ -1,8 +1,10 @@
 Rails.application.routes.draw do
+  get 'projects/new'
+
   resources :sessions, only: [:create, :destroy]
   root 'static_pages#home'
   devise_for :users, controllers: { omniauth_callbacks: 'users/omniauth_callbacks' }
-  delete '/logout' to 'sessions#destroy', as: :logout
+  delete '/logout' => 'sessions#destroy', as: :logout
   # The priority is based upon order of creation: first created -> highest priority.
   # See how all your routes lay out with "rake routes".
 
