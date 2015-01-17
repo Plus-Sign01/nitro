@@ -7,10 +7,16 @@ gem 'bootstrap-sass', '3.3.1.0'
 gem 'devise'
 gem 'omniauth'
 gem 'omniauth-facebook'
+gem 'turbolinks'
 # Use sqlite3 as the database for Active Record
 group :development, :test do 
  gem 'sqlite3', '1.3.10'
  gem 'rspec-rails', '3.1.0'
+ gem 'pry-rails'
+ gem 'pry-byebug'
+ gem 'pry-stack_explorer'
+ gem 'hirb'
+ gem 'hirb-unicode'
 end
 
 group :test do
