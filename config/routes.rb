@@ -1,6 +1,5 @@
 Rails.application.routes.draw do
-  get 'projects/new'
-
+  resources :projects
   resources :sessions, only: [:create, :destroy]
   root 'static_pages#home'
   devise_for :users, controllers: { omniauth_callbacks: 'users/omniauth_callbacks' }

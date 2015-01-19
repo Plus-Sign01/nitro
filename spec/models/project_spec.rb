@@ -17,8 +17,12 @@ describe Project do
     before { @project.project_place = "" }
     it { is_expected.to be_invalid }
   end
-  describe "when project_period is not present" do
-    before { @project.project_period = "" }
+  describe "when project_start_time is not present" do
+    before { @project.project_start_time = "" }
+    it { is_expected.to be_invalid }
+  end
+  describe "when project_end_time is not present" do
+    before { project.project_end_time = "" }
     it { is_expected.to be_invalid }
   end
   describe "when content is not present" do
