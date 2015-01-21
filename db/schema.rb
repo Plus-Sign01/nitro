@@ -11,33 +11,35 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20150116041045) do
+ActiveRecord::Schema.define(version: 20150121095840) do
 
   create_table "projects", force: :cascade do |t|
-    t.string   "project_name"
-    t.string   "project_place"
-    t.date     "project_period"
-    t.text     "content"
-    t.string   "project_owner"
-    t.datetime "created_at",     null: false
-    t.datetime "updated_at",     null: false
+    t.string   "project_name",       null: false
+    t.string   "project_place",      null: false
+    t.datetime "start_time",         null: false
+    t.datetime "end_time",           null: false
+    t.text     "content",            null: false
+    t.string   "company_name",       null: false
+    t.string   "company_owner_name", null: false
+    t.datetime "created_at"
+    t.datetime "updated_at"
   end
 
   create_table "users", force: :cascade do |t|
-    t.string   "email",                  limit: 255, default: "", null: false
-    t.string   "encrypted_password",     limit: 255, default: "", null: false
-    t.string   "reset_password_token",   limit: 255
+    t.string   "email",                  default: "", null: false
+    t.string   "encrypted_password",     default: "", null: false
+    t.string   "reset_password_token"
     t.datetime "reset_password_sent_at"
     t.datetime "remember_created_at"
-    t.integer  "sign_in_count",                      default: 0,  null: false
+    t.integer  "sign_in_count",          default: 0,  null: false
     t.datetime "current_sign_in_at"
     t.datetime "last_sign_in_at"
-    t.string   "current_sign_in_ip",     limit: 255
-    t.string   "last_sign_in_ip",        limit: 255
+    t.string   "current_sign_in_ip"
+    t.string   "last_sign_in_ip"
     t.datetime "created_at"
     t.datetime "updated_at"
-    t.string   "uid",                    limit: 255
-    t.string   "provider",               limit: 255
+    t.string   "uid"
+    t.string   "provider"
   end
 
   add_index "users", ["email"], name: "index_users_on_email", unique: true

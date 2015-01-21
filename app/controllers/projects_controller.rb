@@ -3,17 +3,8 @@ class ProjectsController < ApplicationController
     @project = Project.new
   end
 
-  def create 
-    @project = Project.new(params[:project])
-    if @project.save
-      redirect_to @project
-    else
-      render 'new'
-    end
-  end
-
   def create
-    @project = Project.new(params[:project])
+    @project = Project.new(project_params)
     if @project.save
       redirect_to @project, notice: '作成しました'
     else
@@ -28,6 +19,6 @@ class ProjectsController < ApplicationController
 private
 
   def project_params
-    params.require(:project).permit(:project_name, :project_place, :project_start_time, :project_end_time, :content, :project_owner)
+    params.require(:project).permit(:project_name, :project_place, :start_time, :end_time, :content, :company_name, :company_owner_name)
   end
 end
